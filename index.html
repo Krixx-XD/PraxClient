@@ -43,11 +43,27 @@
 <body>
     <h1 id="header">Prax Client</h1>
     <p>#3 Free Hack Client For BlockmanGO | DebunkedRage</p>
-    <a href="PraxClientRelease1.2.3-fix2.zip" download>Download Prax Client</a>
+    <a href="#" id="downloadbtn">Download Prax Client</a>
 
     <script>
         const header = document.getElementById('header');
+        const downloadBtn = document.getElementById('downloadbtn');
 
+        // Simulate subscription status
+        let subscribed = false; // Change this to true to simulate a subscribed user
+
+        // Event listener for the download button
+        downloadBtn.addEventListener('click', function(event) {
+            if (!subscribed) {
+                event.preventDefault(); // Prevent the default action
+                alert("You must be subscribed to download the Prax Client.");
+            } else {
+                // If subscribed, redirect to the download link
+                window.location.href = "PraxClientRelease1.2.3-fix2 (1).zip";
+            }
+        });
+
+        // Animation code for gradient (remains unchanged)
         const colorPairs = [
             ['#007bff', '#00c0ef'],
             ['#ff0000', '#ff7f00'],
@@ -102,7 +118,6 @@
                 const factor = progress; // Get a progress value from 0 to 1
 
                 header.style.backgroundImage = `linear-gradient(to right, ${interpolateColor(color1, color2, factor)}, ${interpolateColor(color3, color4, factor)})`;
-
                 requestAnimationFrame(animateGradient);
             } else {
                 // Move to the next gradient pair
